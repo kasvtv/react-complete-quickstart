@@ -499,7 +499,7 @@
     "@babel/helper-get-function-arity" "^7.0.0"
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-transform-react-display-name@^7.0.0":
+"@babel/plugin-transform-react-display-name@^7.0.0", "@babel/plugin-transform-react-display-name@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-display-name/-/plugin-transform-react-display-name-7.2.0.tgz#ebfaed87834ce8dc4279609a4f0c324c156e3eb0"
   integrity sha512-Htf/tPa5haZvRMiNSQSFifK12gtr/8vwfr+A9y69uF0QcU77AVu4K7MiHEkTxF7lQoHOL0F9ErqgfNEAKgXj7A==
@@ -1272,6 +1272,11 @@ babel-messages@^6.23.0:
   integrity sha1-8830cDhYA1sqKVHG7F7fbGLyYw4=
   dependencies:
     babel-runtime "^6.22.0"
+
+babel-plugin-add-react-displayname@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/babel-plugin-add-react-displayname/-/babel-plugin-add-react-displayname-0.0.5.tgz#339d4cddb7b65fd62d1df9db9fe04de134122bd5"
+  integrity sha1-M51M3be2X9YtHfnbn+BN4TQSK9U=
 
 babel-plugin-istanbul@^4.1.6:
   version "4.1.6"
@@ -2146,6 +2151,14 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     ripemd160 "^2.0.0"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+cross-env@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.2.0.tgz#6ecd4c015d5773e614039ee529076669b9d126f2"
+  integrity sha512-jtdNFfFW1hB7sMhr/H6rW1Z45LFqyI431m3qU6bFXcQ3Eh7LtBuG3h74o7ohHZ3crrRkkqHlo4jYHFPcjroANg==
+  dependencies:
+    cross-spawn "^6.0.5"
+    is-windows "^1.0.0"
 
 cross-spawn@^3.0.0:
   version "3.0.1"
@@ -4574,7 +4587,7 @@ is-utf8@^0.2.0:
   resolved "https://registry.yarnpkg.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
   integrity sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=
 
-is-windows@^1.0.1, is-windows@^1.0.2:
+is-windows@^1.0.0, is-windows@^1.0.1, is-windows@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/is-windows/-/is-windows-1.0.2.tgz#d1850eb9791ecd18e6182ce12a30f396634bb19d"
   integrity sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==
