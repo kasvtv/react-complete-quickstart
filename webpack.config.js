@@ -13,7 +13,8 @@ module.exports = {
 		path.resolve('.', baseUrl, 'index.scss')
 	],
 	output: {
-		filename: 'bundle-[hash].js'
+		filename: 'bundle-[hash].js',
+		publicPath: '/'
 	},
 	module: {
 		rules: [
