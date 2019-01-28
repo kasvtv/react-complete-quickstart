@@ -71,6 +71,7 @@ module.exports = {
 	),
 	devServer: {
 		port: 8080,
-		https: false
+		https: false,
+		historyApiFallback: {index: 'index.html'}
 	}
 }
