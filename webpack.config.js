@@ -67,7 +67,7 @@ module.exports = {
 		new HtmlWebpackPlugin({template: path.resolve('.', baseUrl, 'index.html')}),
 	].concat(
 		production
-			? [new OptimizeCssAssetsWebpackPlugin()]
+			? [new OptimizeCssAssetsWebpackPlugin({ cssProcessorPluginOptions: {preset: [ 'default', { calc: false }]}})]
 			: []
 	),
 	devServer: {
