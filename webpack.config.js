@@ -8,6 +8,7 @@ const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plug
 
 module.exports = {
 	mode: process.env.NODE_ENV,
+	devtool: production ? "" : "source-map",
 	entry: [
 		path.resolve('.', baseUrl, 'index.js'),
 		path.resolve('.', baseUrl, 'index.scss')
