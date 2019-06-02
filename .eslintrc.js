@@ -14,7 +14,7 @@ const jquery = false;
 const jest = true;
 
 /* Styling: */
-const checkStyling = true;
+const checkStyling = false;
 const indentSetting = 'tab';
 
 /* End of user defined constants */
@@ -98,7 +98,7 @@ module.exports = {
 				objects: 'always-multiline',
 				imports: 'always-multiline',
 				exports: 'always-multiline',
-				functions: (babel || minEcmaVersion >= 6) ? 'always-multiline' : 'never',
+				functions: (babel || minEcmaVersion >= 8) ? 'always-multiline' : 'never',
 			},
 		],
 		'comma-spacing': style,
