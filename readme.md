@@ -26,7 +26,7 @@ Run dev server with auto reload:
 
 Run production build:
 
-	yarn build
+	npm run build
 	
 Run development build with auto reload:
 
