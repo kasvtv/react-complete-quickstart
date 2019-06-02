@@ -1,3 +1,4 @@
+@import 'App/animation.scss';
 /* Component styling! Scoped by hashing IDs and classes, so no worries about any namespace clashes! */
 h1 {
 	&.red {
@@ -6,4 +7,7 @@ h1 {
 			color: blue;
 		}
 	}
+}
+.rotate {
+	animation: rotating 20s linear infinite;
 }

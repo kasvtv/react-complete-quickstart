@@ -4,7 +4,7 @@ module.exports = (wallabyJS) => ({
 	files: [
 		'src/**/*.+(js|jsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)',
 		'jest.setup.js',
-		'!src/**/*.test.js?(x)'
+		'!src/**/*.test.js?(x)',
 	],
 
 	tests: [
@@ -12,15 +12,15 @@ module.exports = (wallabyJS) => ({
 	],
 
 	filesWithNoCoverageCalculated: [
-		'jest.setup.js'
+		'jest.setup.js',
 	],
 
 	env: {
-		type: 'node'
+		type: 'node',
 	},
 
 	compilers: {
-		'**/*.js?(x)': wallabyJS.compilers.babel()
+		'**/*.js?(x)': wallabyJS.compilers.babel(),
 	},
 
 	testFramework: 'jest',

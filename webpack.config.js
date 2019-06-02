@@ -1,28 +1,53 @@
 const baseUrl = require('./jsconfig.json').compilerOptions.baseUrl;
-const production = process.env.NODE_ENV === "production";
-
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const postCssGlobalImportPlugin = require('postcss-global-import');
+const postCssImportPlugin = require('postcss-import');
+const postCssNodeSassPlugin = require('postcss-node-sass');
+
+const production = process.env.NODE_ENV === 'production';
+const analyze = process.env.WEBPACK_ANALYZE;
 
 module.exports = {
-	mode: process.env.NODE_ENV,
-	devtool: production ? "" : "source-map",
+	mode: production ? 'production' : 'development',
+
 	entry: [
 		path.resolve('.', baseUrl, 'index.js'),
-		path.resolve('.', baseUrl, 'index.scss')
+		path.resolve('.', baseUrl, 'index.scss'),
 	],
 	output: {
-		filename: 'bundle-[hash].js',
-		publicPath: '/'
+		filename: '[name]-[chunkhash].js',
+		chunkFilename: '[name]-[chunkhash].js',
+		publicPath: '/',
 	},
+
+	devtool: production ? '' : 'source-map',
+
+	devServer: {
+		port: 8080,
+		https: false,
+		historyApiFallback: { index: 'index.html' },
+	},
+
+	plugins: [
+		new MiniCssExtractPlugin({ filename: 'bundle-[hash].css' }),
+		new HtmlWebpackPlugin({ template: path.resolve('.', baseUrl, 'index.html') }),
+	].concat(
+		production ? new OptimizeCssAssetsWebpackPlugin() : [],
+		analyze ? new BundleAnalyzerPlugin() : [],
+	),
+
 	module: {
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				use: ['babel-loader']
+				use: ['babel-loader'],
 			},
 			{
 				test: /\.(css|scss|sass)$/,
@@ -35,19 +60,20 @@ module.exports = {
 						loader: 'css-loader',
 						options: {
 							modules: true, // all css is scoped to whatever file imports it (use :global(.class) to circumvent)
-							localIdentName: '[name]__[local]____[hash:6]'
-						}
+							localIdentName: '[name]__[local]____[hash:6]',
+						},
 					},
 					{
 						loader: 'postcss-loader',
 						options: {
 							plugins: [
-								require('postcss-import')({ path: baseUrl }), // allows absolute imports from baseURL
-								require('postcss-node-sass')
-							]
-						}
-					}
-				]
+								postCssGlobalImportPlugin(),
+								postCssImportPlugin({ path: baseUrl }),
+								postCssNodeSassPlugin(),
+							],
+						},
+					},
+				],
 			},
 			{
 				test: /\.(gif|svg|json|xml|jpeg|jpg|png|webmanifest)$/,
@@ -56,24 +82,18 @@ module.exports = {
 						loader: 'file-loader',
 						options: {
 							name: '[path][name].[ext]',
-							context: baseUrl
-						}
-					}
-				]
-			}
-		]
+							context: baseUrl,
+						},
+					},
+				],
+			},
+		],
 	},
-	plugins: [
-		new MiniCssExtractPlugin({filename: 'bundle-[hash].css'}),
-		new HtmlWebpackPlugin({template: path.resolve('.', baseUrl, 'index.html')}),
-	].concat(
-		production
-			? [new OptimizeCssAssetsWebpackPlugin({ cssProcessorPluginOptions: {preset: [ 'default', { calc: false }]}})]
-			: []
-	),
-	devServer: {
-		port: 8080,
-		https: false,
-		historyApiFallback: {index: 'index.html'}
-	}
-}
+
+	resolve: {
+		modules: [
+			path.resolve(__dirname, baseUrl),
+			'node_modules',
+		],
+	},
+};
