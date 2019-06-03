@@ -54,5 +54,39 @@
 	"eslintIgnore": [
 		"node_modules",
 		"!.eslintrc.js"
-	]
+	],
+	"name": "react-complete-quickstart",
+	"description": "A complete, yet minimal starter setup of Webpack 4, React, Babel 7, SCSS, Jest, Enzyme and ESLint",
+	"version": "1.0.0",
+	"main": "src/index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kasvtv/react-complete-quickstart.git"
+	},
+	"keywords": [
+		"react",
+		"webpack",
+		"babel",
+		"scss",
+		"html",
+		"eslint",
+		"jest",
+		"enzyme",
+		"wallaby",
+		"quokka",
+		"mocks",
+		"enzyme",
+		"wallaby",
+		"quokka",
+		"minimal",
+		"start",
+		"example",
+		"project"
+	],
+	"author": "Kas van 't Veer",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/kasvtv/react-complete-quickstart/issues"
+	},
+	"homepage": "https://github.com/kasvtv/react-complete-quickstart#readme"
 }
