@@ -40,8 +40,13 @@
 	},
 	"dependencies": {
 		"@babel/polyfill": "^7.4.4",
+		"lodash": "^4.17.14",
 		"react": "^16.8.6",
-		"react-dom": "^16.8.6"
+		"react-dom": "^16.8.6",
+		"react-redux": "^7.1.0",
+		"redux": "^4.0.4",
+		"redux-thunk": "^2.3.0",
+		"reselect": "^4.0.0"
 	},
 	"quokka": {
 		"babel": true,

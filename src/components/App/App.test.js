@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from 'App/App.js';
-import AppStyles from 'App/App.scss';
+import App from 'components/App/App.js';
+import AppStyles from 'components/App/App.scss';
 
 describe('Testing App', () => {
 	it('renders', () => {
